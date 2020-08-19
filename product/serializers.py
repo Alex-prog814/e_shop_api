@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from product.models import Product, Category
 
-from e_shop.product.models import ProductImage
+from product.models import ProductImage
 
 
 class ProductSerializer(serializers.ModelSerializer):
