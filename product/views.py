@@ -4,6 +4,9 @@ from rest_framework import viewsets
 from product.models import Product, Category
 from product.serializers import ProductSerializer, CategorySerializer
 
+from e_shop.product.models import ProductImage
+from e_shop.product.serializers import ProductImageSerializer
+
 
 class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Category.objects.all()
@@ -27,7 +30,12 @@ class ProductViewSet(viewsets.ReadOnlyModelViewSet):
         return {'request': self.request}
 
 
+class ProductImageViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = ProductImage.objects.all()
+    serializer_class = ProductImageSerializer
 
+    def get_serializer_context(self):
+        return {'request': self.request}
 
 
 
